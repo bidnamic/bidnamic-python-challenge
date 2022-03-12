@@ -1,1 +1,0 @@
-web: gunicorn bidnamic.wsgi --log-file -

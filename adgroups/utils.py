@@ -10,7 +10,7 @@ class LoadThread(threading.Thread):
         threading.Thread.__init__(self)
 
     def run(self):
-        self.data.send()
+        self.data
 
 class Load:
     @staticmethod

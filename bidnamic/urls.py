@@ -20,6 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('adgroups.urls')),
     path('', include('campaigns.urls')),
-    path('', include('search_terms.urls')),
+    #path('', include('search_terms.urls')),
     path('', include('aggregate.urls')),
 ]

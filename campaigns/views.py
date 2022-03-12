@@ -43,11 +43,11 @@ class LoadDataCampaign(generics.CreateAPIView):
             data= file.shape[0]
 
             for i,j in file.iterrows():
-                data, created= Campaigns.objects.update_or_create(
+                data, Load.load_data(created= Campaigns.objects.update_or_create(
                     campaign_id= j['campaign_id'],
                     structure_value= j['structure_value'],
                     status= j['status'],
-                )
+                ))
                 print(created)
                 print(data)
                 print('done')

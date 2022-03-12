@@ -9,6 +9,7 @@ from campaigns.models import Campaigns
 from rest_framework import generics
 import pandas as pd
 from adgroups.utils import Load
+from search_terms.models import Search_Terms
 
 # Create your views here.
 
@@ -35,8 +36,8 @@ class LoadSearchTableView(generics.CreateAPIView):
                 
             for i,j in file.iterrows():
                 camp_id= Campaigns.objects.get(campaign_id= j['campaign_id'])
-                adgroups_id= Adgroups.objects.get(ad_groupd_id= j['ad_group_id'])
-                data, created= Adgroups.objects.update_or_create(
+                adgroups_id= Adgroups.objects.get(ad_group_id= j['ad_group_id'])
+                data, created= Search_Terms.objects.update_or_create(
                     date= j['date'],
                     ad_group_id= adgroups_id,
                     campaign_id= camp_id,
@@ -46,9 +47,6 @@ class LoadSearchTableView(generics.CreateAPIView):
                     conversions= j['conversions'],
                     search_term= j['search_term'],
                 )
-                print(created)
-                print(data)
-                print('done')
             return Response({"success":"Successfully uploaded"}, status=status.HTTP_201_CREATED)
         return Response({'Error':'Error encountered'}, status= status.HTTP_400_BAD_REQUEST)
 

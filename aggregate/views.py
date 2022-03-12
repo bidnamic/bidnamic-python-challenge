@@ -25,16 +25,17 @@ class PopulateRoasTableView(APIView):
 
         data= Search_Terms.objects.all()
         for i in data:
-            roas= i.conversion_values // i.cost
+            roas= i.conversion_value // i.cost
             data, created= Roas.objects.update_or_create(
                 search_id= i,
                 search_term= i.search_term,
-                total_conversion= i.conversion_value,
+                total_conversion_value= i.conversion_value,
                 total_cost= i.cost,
                 roas= roas,
             )
-            Load.load_data(created)
-            data.save()
+            print(created)
+            print(data)
+            print('done')
         return Response({'Success':'Successfully Uploaded'}, status= status.HTTP_201_CREATED)
 
 class RetrieveTop10DataView(generics.ListAPIView):

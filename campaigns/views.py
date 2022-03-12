@@ -48,9 +48,6 @@ class LoadDataCampaign(generics.CreateAPIView):
                     structure_value= j['structure_value'],
                     status= j['status'],
                 )
-                print(created)
-                print(data)
-                print('done')
             return Response({"success":"Successfully uploaded"}, status=status.HTTP_201_CREATED)
         return Response({'Error':'Error encountered'}, status= status.HTTP_400_BAD_REQUEST)
 

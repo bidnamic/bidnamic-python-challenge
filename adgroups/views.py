@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from campaigns.models import Campaigns
 from csvs.models import Csv
-
+from .serializers import AdgroupsSerializer
 from csvs.serializers import(
     CSVUploadSerializers
 )
@@ -46,8 +46,12 @@ class LoadDataAdgroups(generics.CreateAPIView):
                     alias= j['alias'],
                     status= j['status'],
                 )
-                print(created)
-                print(data)
-                print('done')
             return Response({"success":"Successfully uploaded"}, status=status.HTTP_201_CREATED)
         return Response({'Error':'Error encountered'}, status= status.HTTP_400_BAD_REQUEST)
+
+
+class ReturnFIRST10(generics.ListAPIView):
+    serializer_class= AdgroupsSerializer
+
+    def get_queryset(self):
+        return Adgroups.objects.all().order_by('-id')[:10]

@@ -50,10 +50,3 @@ class LoadDataCampaign(generics.CreateAPIView):
                 )
             return Response({"success":"Successfully uploaded"}, status=status.HTTP_201_CREATED)
         return Response({'Error':'Error encountered'}, status= status.HTTP_400_BAD_REQUEST)
-
-
-class GetfIRST10(generics.ListAPIView):
-    serializer_class= CampaignSerializer
-
-    def get_queryset(self):
-        return Campaigns.objects.all().order_by('-id')[:10]

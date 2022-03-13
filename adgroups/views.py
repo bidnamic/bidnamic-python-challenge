@@ -48,10 +48,3 @@ class LoadDataAdgroups(generics.CreateAPIView):
                 )
             return Response({"success":"Successfully uploaded"}, status=status.HTTP_201_CREATED)
         return Response({'Error':'Error encountered'}, status= status.HTTP_400_BAD_REQUEST)
-
-
-class ReturnFIRST10(generics.ListAPIView):
-    serializer_class= AdgroupsSerializer
-
-    def get_queryset(self):
-        return Adgroups.objects.all().order_by('-id')[:10]

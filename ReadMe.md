@@ -1,3 +1,5 @@
+<img src="logo.png" alt="drawing" width="500"/>
+
 ### DJANGO CSV LOADER
 
 ## Django csv loader is an api that load uploaded csv file into database using the supplied model fields

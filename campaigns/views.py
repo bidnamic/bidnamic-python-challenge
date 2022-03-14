@@ -17,7 +17,6 @@ from rest_framework import generics
 import csv
 from adgroups.utils import Load
 import pandas as pd
-from adgroups.utils import Load
 
 # Create your views here.
 

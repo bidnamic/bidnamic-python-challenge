@@ -1,5 +1,5 @@
 from django.contrib import admin
-from filecontrols.models import Campaign, AdGroup, SearchTerm
+from file_controls.models import Campaign, AdGroup, SearchTerm
 # Register your models here.
 
 

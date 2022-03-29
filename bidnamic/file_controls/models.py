@@ -35,7 +35,7 @@ class SearchTerm(models.Model):
     campaign = models.ForeignKey(Campaign, null=True, blank=True, on_delete=models.SET_NULL,
                                  verbose_name="Connected Campaign")
     click = models.IntegerField(null=True, blank=True, verbose_name="Click Amount")
-    cost = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=2, verbose_name="Click Amount")
+    cost = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=2, verbose_name="Cost")
     conversion_value = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=2,
                                            verbose_name="Conversion Value")
     conversion = models.IntegerField(null=True, blank=True, verbose_name="Conversion")

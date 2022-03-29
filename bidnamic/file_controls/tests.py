@@ -1,7 +1,6 @@
 from django.test import TestCase, SimpleTestCase, Client
 from django.urls import reverse, resolve
 from file_controls.views import ReadCSVFileView
-# Create your tests here.
 
 
 class URLTests(SimpleTestCase):
